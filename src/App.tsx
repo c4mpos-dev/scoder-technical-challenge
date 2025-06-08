@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { BrowserRouter } from "react-router-dom";
+import { Router } from "./Router";
 
 export function App() {
     return (
-        <div className='flex justify-center items-center h-screen bg-purple-400'>
-            <h1 className='text-white text-5xl'>FAKE STORE</h1>
-        </div>
-    )
+        <BrowserRouter>
+            <Router />
+        </BrowserRouter>
+    );
 }

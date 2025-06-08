@@ -1,4 +1,4 @@
-import { Star, ShoppingCart } from "lucide-react";
+import { Star, Plus } from "lucide-react";
 
 import type { Product } from "../pages/Store";
 
@@ -18,7 +18,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <img
                 src={product.image}
                 alt={product.title}
-                className="w-full h-48 mb-4 object-contain transition-transform duration-300 hover:scale-110"
+                className="w-full h-48 mb-4 object-contain transition-transform duration-300 group-hover:scale-110"
             />
             
             <h3 className="font-semibold font-title line-clamp-2 mb-1">
@@ -29,9 +29,9 @@ export function ProductCard({ product }: ProductCardProps) {
 
             <div className="mt-auto flex items-center justify-between">
                 <span className="text-xl font-bold text-purple-600">${product.price}</span>
-                <button className="flex items-center gap-2 text-sm text-purple-600 hover:text-purple-800 transition">
-                    <ShoppingCart className="w-4 h-4" />
-                    Adicionar
+                <button className="flex items-center gap-2 text-sm px-3 py-2 text-gray-50 from-purple-500 to-purple-700 bg-gradient-to-r rounded-lg shadow-md shadow-black/20 hover:from-purple-700 hover:shadow-lg hover:cursor-pointer hover:scale-105 transition-all">
+                    <Plus className="w-4 h-4" />
+                    <span className="font-semibold">Adicionar</span>
                 </button>
             </div>
         </div>

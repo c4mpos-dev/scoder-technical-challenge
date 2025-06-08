@@ -1,15 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import { Search, ShoppingCart, Truck, Zap, DollarSign, Lock } from "lucide-react";
 
 import { Input } from "../components/Input";
 import { CartDrawer } from "../components/CartDrawer";
 import { Feature } from "../components/Feature";
-// import { ProductCard } from "../components/ProductCard";
+import { ProductList } from "../components/ProductList";
+
+import { categoryLabels } from "../utils/categoryLabels"; 
+import { fetchProducts } from "../services/products";
 
 import logoScoder from "../assets/logo-scoder.png";
-import { ProductList } from "../components/ProductList";
-import { mockProducts } from "../data/mockProducts";
+import { Loading } from "../components/Loading";
 
 export interface Product {
     id: number;
@@ -31,29 +33,21 @@ const features = [
     { span: "Compra Segura", icon: Lock, iconColor: "text-yellow-500" },
 ];
 
-const categoryLabels: Record<string, string> = {
-    "men's clothing": "Moda Masculina",
-    "women's clothing": "Moda Feminina",
-    "jewelery": "Joias & Acessórios",
-    "electronics": "Eletrônicos",
-};
-
-const categories = Object.keys(categoryLabels);
-
 export function Store() {
-    // const [loading, setLoading] = useState(true)
+    const [products, setProducts] = useState<Product[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
     const [isCartOpen, setIsCartOpen] = useState(false);
 
-    // if (loading) {
-    //     return (
-    //     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-    //         <div className="text-center">
-    //         <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-purple-600 mx-auto mb-4"></div>
-    //         <h2 className="text-xl font-semibold text-gray-700">Carregando produtos...</h2>
-    //         </div>
-    //     </div>
-    //     )
-    // }
+    useEffect(() => {
+        fetchProducts()
+            .then(setProducts)
+            .catch(console.error)
+            .finally(() => setIsLoading(false));
+    }, []);
+
+    const categories = [...new Set(products.map((p) => p.category))];
+
+    if (isLoading) return <Loading />;
 
     return (
         <div className="min-h-screen bg-gray-50 font-content">
@@ -110,32 +104,27 @@ export function Store() {
                 </div>
             </div>
 
-
-             <div className="max-w-7xl mx-auto px-4 py-10 space-y-24">
+            {/* Categories and Products */}
+            <div className="max-w-7xl mx-auto px-4 py-10 space-y-24">
                 {categories.map((category) => {
-                    const products = mockProducts.filter((p) => p.category === category);
-
-                    if (products.length === 0) return null;
-
+                    const categoryProducts = products.filter((p) => p.category === category);
                     return (
                         <section key={category}>
-                            <div className="flex items-center gap-8 mb-8">
-                                <div className="flex flex-col">
-                                    <h2 className="text-3xl font-title font-bold">
-                                        {categoryLabels[category]}
-                                    </h2>
-                                    <span className="text-sm text-gray-500">
-                                        {products.length} produto{products.length > 1 ? 's' : ''} disponíveis
-                                    </span>
-                                </div>
-                                <div className="h-1 flex-1 rounded-full from-purple-400 to-purple-50 bg-gradient-to-r"></div>
+                            <div className="flex items-center gap-4 mb-2">
+                                <h2 className="text-3xl font-bold font-title">
+                                    {categoryLabels[category]}
+                                </h2>
+                                <div className="h-1 flex-1 rounded-full from-purple-400 to-purple-50 bg-gradient-to-r" />
                             </div>
-                            <ProductList products={products} />
+
+                            <p className="text-sm text-gray-500 mb-4">
+                                {categoryProducts.length} produto{categoryProducts.length !== 1 && "s"}
+                            </p>
+                            <ProductList products={categoryProducts} />
                         </section>
                     );
                 })}
             </div>
-
         </div>
     )
 }

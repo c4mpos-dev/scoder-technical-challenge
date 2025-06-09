@@ -11,7 +11,7 @@ export function CheckoutForm() {
     return (
         <div className="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow flex flex-col md:flex-row gap-6">
             <div className="flex-1 space-y-4 order-1">
-                <div className="flex flex-wrap justify-between text-sm text-gray-600 mb-4">
+                <div className="flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm text-gray-600 mb-4">
                     <span className={step === 1 ? "font-bold" : ""}>1. Dados</span>
                     <span className={step === 2 ? "font-bold" : ""}>2. Endereço</span>
                     <span className={step === 3 ? "font-bold" : ""}>3. Pagamento</span>

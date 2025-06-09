@@ -31,7 +31,7 @@ export function AddressStep({ onNext, onBack }: Props) {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <Input label="Rua" {...register("street")} error={errors.street?.message} />
-            <Input label="Número" {...register("number")} error={errors.number?.message} />
+            <Input label="Número" {...register("number")} error={errors.number?.message} type="number"/>
             <Input label="Cidade" {...register("city")} error={errors.city?.message} />
 
             <div className="flex justify-between">

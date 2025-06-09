@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { Star, ArrowLeft } from "lucide-react";
+import { Star, ArrowLeft, CircleOff } from "lucide-react";
 
 import type { Product } from "./Store";
 
@@ -59,7 +59,11 @@ export function ProductPage() {
             {loading ? (
                 <Loading />
             ) : !product ? (
-                <div className="flex-grow p-10 text-center text-gray-600 text-lg">Produto não encontrado.</div>
+                <div className="flex justify-center items-center py-10 text-center text-gray-600 text-lg">
+                    <p className="flex items-center justify-center gap-4 sm:text-2xl font-title mb-2 animate-bounce">
+                        Produto não encontrado  <CircleOff className="w-6 h-6 text-purple-700" />
+                    </p>
+                </div>
             ) : (
                 <div>
                     <div className="max-w-5xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
@@ -70,7 +74,7 @@ export function ProductPage() {
                         />
 
                         <div className="flex flex-col justify-between gap-4 h-96">
-                            <h1 className="text-3xl font-title font-bold text-gray-800">{product.title}</h1>
+                            <h1 className="text-2xl lg:text-3xl font-title font-bold line-clamp-4">{product.title}</h1>
 
                             <div className="flex items-center gap-2 text-yellow-500">
                                 <Star className="w-4 h-4 fill-yellow-500" />
@@ -99,8 +103,7 @@ export function ProductPage() {
                         </div>
                     </div>
 
-                    {/* Comentários fictícios */}
-                    <div className="flex flex-col justify-center max-w-5xl mx-auto px-6 pb-10 mb-6">
+                    <div className="flex flex-col justify-center max-w-5xl mx-auto mt-8 sm:mt-6 px-6 pb-10 mb-6">
                         <h2 className="text-2xl font-semibold font-title mb-4">Comentários</h2>
                         <ul className="space-y-4">
                             <li className="bg-white p-4 rounded-xl shadow">
@@ -110,6 +113,10 @@ export function ProductPage() {
                             <li className="bg-white p-4 rounded-xl shadow">
                                 <p className="font-semibold text-purple-700">Mariana L.</p>
                                 <p className="text-gray-600">Superou minhas expectativas. Recomendo!</p>
+                            </li>
+                             <li className="bg-white p-4 rounded-xl shadow">
+                                <p className="font-semibold text-purple-700">Cauã C.</p>
+                                <p className="text-gray-600">Perfeito!! Era exatamente o que eu queria.</p>
                             </li>
                         </ul>
                     </div>

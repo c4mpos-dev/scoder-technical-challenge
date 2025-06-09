@@ -53,6 +53,7 @@ export function PersonalInfoStep({ onNext }: PersonalInfoStepProps) {
                 placeholder="+5511999999999"
                 error={errors.phone?.message}
                 {...register("phone")}
+                type="tel"
             />
             <button
                 type="submit"

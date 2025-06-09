@@ -142,7 +142,7 @@ export function Store() {
             >
                 {filteredProducts.length === 0 ? (
                     <div className="flex justify-center flex-col text-center text-gray-600 mt-12">
-                        <p className="flex items-center justify-center gap-4 text-2xl font-title mb-2 animate-bounce">
+                        <p className="flex items-center justify-center gap-4 sm:text-2xl font-title mb-2 animate-bounce">
                             Nenhum produto encontrado  <CircleOff className="w-6 h-6 text-purple-700" />
                         </p>
                     </div>

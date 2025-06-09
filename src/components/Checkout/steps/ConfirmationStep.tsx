@@ -39,14 +39,14 @@ export function ConfirmationStep({ onBack }: Props) {
                 <button
                     type="button"
                     onClick={onBack}
-                    className="py-3 px-4 text-white font-bold rounded-xl bg-gradient-to-r from-purple-700 to-pink-500 hover:to-purple-700 transition-all duration-300 hover:cursor-pointer"
+                    className="py-3 px-4 text-white text-sm sm:text-base font-bold rounded-xl bg-gradient-to-r from-purple-700 to-pink-500 hover:to-purple-700 transition-all duration-300 hover:cursor-pointer"
                 >
                     Voltar
                 </button>
                 <button
                     type="button"
                     onClick={handleFinish}
-                    className="py-3 px-4 text-white font-bold rounded-xl bg-gradient-to-r from-green-700 to-green-500 hover:to-green-700 transition-all duration-300 hover:cursor-pointer"
+                    className="py-3 px-4 text-white text-sm sm:text-base font-bold rounded-xl bg-gradient-to-r from-green-700 to-green-500 hover:to-green-700 transition-all duration-300 hover:cursor-pointer"
                 >
                     Finalizar Compra
                 </button>

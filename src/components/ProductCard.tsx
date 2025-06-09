@@ -2,11 +2,15 @@ import { Star, Plus } from "lucide-react";
 
 import type { Product } from "../pages/Store";
 
+import { useCart } from "../contexts/CartContext";
+
 interface ProductCardProps {
     product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+    const { addToCart } = useCart();
+
     return (
         <div className="relative group p-4 bg-white border border-black/10 rounded-xl shadow-md shadow-black/20 hover:shadow-xl transition-all flex flex-col hover:border-purple-500/50 hover:scale-105 hover:cursor-pointer">
             <div className="absolute top-2 right-2 flex items-center gap-1 bg-white/80 backdrop-blur-sm px-2 py-1 rounded-full text-yellow-500 text-xs shadow-sm z-10 hover:bg-white">
@@ -29,7 +33,10 @@ export function ProductCard({ product }: ProductCardProps) {
 
             <div className="mt-auto flex items-center justify-between">
                 <span className="text-xl font-bold text-purple-600">${product.price}</span>
-                <button className="flex items-center gap-2 text-sm px-3 py-2 text-gray-50 from-purple-500 to-purple-700 bg-gradient-to-r rounded-lg shadow-md shadow-black/20 hover:from-purple-700 hover:shadow-lg hover:cursor-pointer hover:scale-105 transition-all">
+                <button 
+                    className="flex items-center gap-2 text-sm px-3 py-2 text-gray-50 from-purple-500 to-purple-700 bg-gradient-to-r rounded-lg shadow-md shadow-black/20 hover:from-purple-700 hover:shadow-lg hover:cursor-pointer hover:scale-105 transition-all"
+                    onClick={() => addToCart(product)}
+                >
                     <Plus className="w-4 h-4" />
                     <span className="font-semibold">Adicionar</span>
                 </button>

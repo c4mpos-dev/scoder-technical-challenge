@@ -5,11 +5,19 @@ import clsx from "clsx";
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     label?: string;
     icon?: LucideIcon;
+    onIconClick?: () => void;
     error?: string;
     className?: string;
 }
 
-export function Input({ label, icon: Icon, error, className, ...props }: InputProps) {
+export function Input({
+    label,
+    icon: Icon,
+    onIconClick,
+    error,
+    className,
+    ...props
+}: InputProps) {
     return (
         <div className="w-full max-w-sm">
             {label && (
@@ -26,17 +34,23 @@ export function Input({ label, icon: Icon, error, className, ...props }: InputPr
                     className
                 )}
             >
-                {Icon && (
-                    <Icon className="w-5 h-5 text-gray-400 mr-2" />
-                )}
                 <input
                     {...props}
                     className="w-full outline-none bg-transparent text-sm text-gray-900 font-content placeholder:text-gray-400"
                 />
+                {Icon && onIconClick && (
+                    <button
+                        type="button"
+                        onClick={onIconClick}
+                        className="ml-2 text-gray-400 hover:text-purple-600 transition hover:cursor-pointer"
+                    >
+                        <Icon className="w-5 h-5" />
+                    </button>
+                )}
             </div>
             {error && (
                 <p className="text-xs text-red-500 mt-1">{error}</p>
             )}
         </div>
     );
-};
+}

@@ -6,7 +6,6 @@ import { CartDrawer } from "../components/CartDrawer";
 import { Feature } from "../components/Feature";
 import { ProductList } from "../components/ProductList";
 import { SearchBar } from "../components/SearchBar";
-import { Footer } from "../components/Footer";
 import { Loading } from "../components/Loading";
 
 import { categoryLabels } from "../utils/categoryLabels"; 
@@ -76,7 +75,7 @@ export function Store() {
     }
 
     return (
-        <div className="flex flex-col min-h-screen bg-gray-50 font-content">
+        <div className="flex flex-col bg-gray-50 font-content">
             {/* Header */}
             <header className="sticky top-0 z-40 bg-white shadow-sm">
                 <div className="container mx-auto px-4 py-4">
@@ -139,7 +138,7 @@ export function Store() {
             {/* Categories and Products */}
             <div
                 ref={productsRef}
-                className="max-w-7xl mx-auto px-4 py-10 space-y-24"
+                className="max-w-7xl mx-auto px-4 py-10 space-y-24 mb-10"
             >
                 {filteredProducts.length === 0 ? (
                     <div className="flex justify-center flex-col text-center text-gray-600 mt-12">
@@ -173,9 +172,6 @@ export function Store() {
                     })
                 )}
             </div>
-
-            {/* Footer */}
-            <div className="mt-auto"><Footer /></div>
         </div>
     );
 }

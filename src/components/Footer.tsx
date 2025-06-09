@@ -1,6 +1,6 @@
 export function Footer() {
     return (
-        <footer className="flex flex-col justify-center items-center bg-purple-800 text-gray-300 py-10 mt-12">
+        <footer className="flex flex-col justify-center items-center bg-purple-800 text-gray-300 pt-8 pb-4 mt-auto">
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
                 
                 <div className="flex flex-col items-center text-center md:text-start md:items-start">

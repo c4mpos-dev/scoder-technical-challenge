@@ -80,7 +80,7 @@ export function Store() {
             {/* Header */}
             <header className="sticky top-0 z-40 bg-white shadow-sm">
                 <div className="container mx-auto px-4 py-4">
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-6">
                             <img src={logoScoder} className="w-9" />
                         </div>
@@ -105,15 +105,15 @@ export function Store() {
             <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
 
             {/* Hero Section */}
-            <div className="flex flex-col justify-center items-center px-6 py-10 gap-6 text-gray-50 from-purple-800 to-purple-500 from-80% bg-gradient-to-r">
-                <h1 className="font-title text-6xl text-gray-50 animate-pulse">
+            <div className="flex flex-col justify-center items-center text-center px-6 py-10 gap-6 text-gray-50 from-purple-800 to-purple-500 from-80% bg-gradient-to-r">
+                <h1 className="font-title text-4xl sm:text-6xl text-gray-50 animate-pulse">
                     Bem-vindo à Scoder Store
                 </h1>
-                <h2 className="font-title text-2xl">
+                <h2 className="font-title text-xl sm:text-2xl">
                     Descubra produtos incríveis com tecnologia de ponta
                 </h2>
 
-                <div className="flex items-center gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 items-center gap-6">
                     {features.map((feature, index) => (
                         <Feature
                             key={index}

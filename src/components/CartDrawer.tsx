@@ -92,7 +92,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                             </button>
                             <button
                                 onClick={() => navigate("/checkout")}
-                                className="w-full py-3 text-white font-bold rounded-xl bg-gradient-to-r from-purple-700 to-pink-500 hover:to-purple-700 hover:cursor-pointer hover:scale-105 transition-all duration-300"
+                                className="w-full py-3 mb-6 text-white font-bold rounded-xl bg-gradient-to-r from-purple-700 to-pink-500 hover:to-purple-700 hover:cursor-pointer hover:scale-105 transition-all duration-300"
                             >
                                 Finalizar compra
                             </button>

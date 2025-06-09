@@ -29,7 +29,7 @@ export function Checkout() {
             </header>
 
             <div className="">
-                <h1 className="text-3xl font-bold font-title mb-8 text-center">Finalizar Compra</h1>
+                <h1 className="text-3xl font-bold font-title mb-8 mt-8 text-center">Finalizar Compra</h1>
                 <CheckoutForm />
                 
             </div>

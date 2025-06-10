@@ -1,4 +1,4 @@
-# 🏍️ Scoder FakeStore
+# 🛍️ Scoder FakeStore
 
 Loja virtual fictícia desenvolvida com **React**, **Vite** e **Tailwind CSS**, focada em boas práticas de UI moderna e arquitetura de componentes reutilizáveis.
 

@@ -11,7 +11,6 @@ export function OrderSummary() {
     return (
         <aside className="w-72 sm:w-96 p-4 bg-gray-50 rounded-lg shadow-md sticky top-6 self-start">
             <h2 className="text-lg font-semibold mb-4">Resumo do Pedido</h2>
-        
             
             <ul className="divide-y divide-gray-200 max-h-[300px] overflow-y-auto">
                 {cart.map((item) => (

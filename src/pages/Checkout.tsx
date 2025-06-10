@@ -16,7 +16,6 @@ export function Checkout() {
         }
     }, [cart, navigate]);
 
-
     return (
         <div className="flex flex-col bg-gray-50 font-content">
             <Header variant="internal" />

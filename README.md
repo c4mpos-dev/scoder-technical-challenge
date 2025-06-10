@@ -6,7 +6,7 @@ Loja virtual fictícia desenvolvida com **React**, **Vite** e **Tailwind CSS**, 
 
 * Listagem de produtos por categoria (consumindo a [Fake Store API](https://fakestoreapi.com/))
 * Componente de **pesquisa** com validação e atualização em tempo real
-* Sistema de **carrinho de compras** com gerenciamento de estado:
+* Sistema de **carrinho de compras** com local storage:
 
   * Adição de produtos com controle de quantidade
   * Ícone com contador animado
@@ -65,5 +65,4 @@ http://localhost:5173
 
 ## 📌 Notas
 
-* O carrinho ainda não persiste no localStorage (mas pode ser facilmente adicionado).
 * Este projeto foi desenvolvido como parte de uma avaliação técnica da empresa Scoder.

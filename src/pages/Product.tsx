@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-import { Star, ArrowLeft, CircleOff } from "lucide-react";
+import { Star, CircleOff } from "lucide-react";
 
 import type { Product } from "./Store";
 
 import { Loading } from "../components/Loading";
+import { Header } from "../components/Header";
+
 import { useCart } from "../contexts/CartContext";
 import { fetchProducts } from "../services/products";
 
-import logoScoder from "../assets/logo-scoder.png";
-
 export function ProductPage() {
     const { id } = useParams<{ id: string }>();
-    const navigate = useNavigate();
     const { addToCart } = useCart();
 
     const [product, setProduct] = useState<Product | null>(null);
@@ -40,21 +39,7 @@ export function ProductPage() {
     return (
         <div className="flex flex-col bg-gray-50 font-content">
             
-            <header className="sticky top-0 z-40 bg-white shadow-sm">
-                <div className="container mx-auto px-4 py-4">
-                    <div className="flex items-center justify-between">
-                        <button
-                            onClick={() => navigate("/")}
-                            className="flex items-center gap-1 text-md text-purple-700 font-semibold hover:underline hover:cursor-pointer"
-                        >
-                            <ArrowLeft className="w-4 h-4" />
-                            Voltar para loja
-                        </button>
-
-                        <img src={logoScoder} className="w-9" alt="Logo" />
-                    </div>
-                </div>
-            </header>
+            <Header variant="internal" />
 
             {loading ? (
                 <Loading />
@@ -74,7 +59,7 @@ export function ProductPage() {
                         />
 
                         <div className="flex flex-col justify-between gap-4 h-96">
-                            <h1 className="text-2xl lg:text-3xl font-title font-bold line-clamp-4">{product.title}</h1>
+                            <h1 className="text-2xl lg:text-3xl font-title font-bold line-clamp-4 md:line-clamp-none">{product.title}</h1>
 
                             <div className="flex items-center gap-2 text-yellow-500">
                                 <Star className="w-4 h-4 fill-yellow-500" />

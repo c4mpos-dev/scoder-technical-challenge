@@ -1,19 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 
-import { ShoppingCart, Truck, Zap, DollarSign, Lock, CircleOff } from "lucide-react";
+import { Truck, Zap, DollarSign, Lock, CircleOff } from "lucide-react";
 
 import { CartDrawer } from "../components/CartDrawer";
 import { Feature } from "../components/Feature";
-import { ProductList } from "../components/ProductList";
-import { SearchBar } from "../components/SearchBar";
+import { ProductList } from "../components/Product/ProductList";
+import { Header } from "../components/Header";
 import { Loading } from "../components/Loading";
 
 import { categoryLabels } from "../utils/categoryLabels"; 
 import { fetchProducts } from "../services/products";
-
-import { useCart } from "../contexts/CartContext";
-
-import logoScoder from "../assets/logo-scoder.png";
 
 export interface Product {
     id: number;
@@ -40,9 +36,6 @@ export function Store() {
     const [searchTerm, setSearchTerm] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const [isCartOpen, setIsCartOpen] = useState(false);
-
-    const { cart } = useCart();
-    const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
     const categoryOrder = [
         "men's clothing",
@@ -76,30 +69,12 @@ export function Store() {
 
     return (
         <div className="flex flex-col bg-gray-50 font-content">
-            {/* Header */}
-            <header className="sticky top-0 z-40 bg-white shadow-sm">
-                <div className="container mx-auto px-4 py-4">
-                    <div className="flex items-center justify-between gap-4">
-                        <div className="flex items-center gap-6">
-                            <img src={logoScoder} className="w-9" />
-                        </div>
+            <Header
+                variant="store"
+                onSearch={handleSearch}
+                onCartClick={() => setIsCartOpen(true)}
+            />
 
-                        <SearchBar onSearch={handleSearch} />
-
-                        <button
-                            onClick={() => setIsCartOpen(true)}
-                            className="relative px-3 py-2 border border-purple-400 rounded-lg transition hover:bg-gray-100 hover:cursor-pointer"
-                        >
-                        <ShoppingCart className="w-4 h-5 text-purple-700" />
-                        {cartCount > 0 && (
-                            <span className="absolute -top-2 -right-2.5 bg-purple-700 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center animate-bounce">
-                                {cartCount}
-                            </span>
-                        )}
-                        </button>
-                    </div>
-                </div>
-            </header>
 
             <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
 

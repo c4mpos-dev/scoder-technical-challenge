@@ -13,9 +13,9 @@ export function Footer() {
                 <div className="flex flex-col items-center text-center md:text-start md:items-start">
                     <h3 className="text-sm font-semibold text-white mb-2">Contato</h3>
                     <ul className="space-y-1 text-sm text-gray-100/70">
-                        <li>Email: contato@scoderstore.com</li>
-                        <li>WhatsApp: (21) 99999-9999</li>
-                        <li>Endereço: Rio de Janeiro - RJ</li>
+                        <li>contato@scoderstore.com</li>
+                        <li>(35) 99999-9999</li>
+                        <li>Santa Rita do Sapucaí - MG</li>
                     </ul>
                 </div>
 

@@ -2,6 +2,10 @@
 
 Loja virtual fictícia desenvolvida com **React**, **Vite** e **Tailwind CSS**, focada em boas práticas de UI moderna e arquitetura de componentes reutilizáveis.
 
+<p align="center">
+  <img alt="Banner" title="Banner" src="./src/assets/templates/banner.png"/>
+</p>
+
 ## 📦 Funcionalidades
 
 * Listagem de produtos por categoria (consumindo a [Fake Store API](https://fakestoreapi.com/))

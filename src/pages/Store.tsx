@@ -75,7 +75,6 @@ export function Store() {
                 onCartClick={() => setIsCartOpen(true)}
             />
 
-
             <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
 
             {/* Hero Section */}
